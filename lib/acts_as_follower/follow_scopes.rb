@@ -3,11 +3,11 @@ module ActsAsFollower #:nodoc:
 
     def for_follower(follower)
       where(:follower_id => follower.id,
-            :follower_type => parent_class_name(follower))
+            :follower_type => follower.class.name)
     end
 
     def for_followable(followable)
-      where(:followable_id => followable.id, :followable_type => parent_class_name(followable))
+      where(:followable_id => followable.id, :followable_type => followable.class.name)
     end
 
     def for_follower_type(follower_type)
