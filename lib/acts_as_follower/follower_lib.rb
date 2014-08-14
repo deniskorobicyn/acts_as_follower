@@ -3,14 +3,6 @@ module ActsAsFollower
 
     private
 
-    # Retrieves the parent class name if using STI.
-    def parent_class_name(obj)
-      if obj.class.superclass != ActiveRecord::Base
-        return obj.class.superclass.name
-      end
-      return obj.class.name
-    end
-
     def apply_options_to_scope(scope, options = {})
       if options.has_key?(:limit)
         scope = scope.limit(options[:limit])
